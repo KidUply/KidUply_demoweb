@@ -76,17 +76,6 @@ nav {
 
 .logo span { color: var(--text); }
 
-.nav-badge {
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  color: var(--green-bright);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-  letter-spacing: 0.3px;
-}
-
 /* ── HERO ── */
 #hero {
   padding: 80px 20px 60px;
@@ -545,8 +534,252 @@ h2 em {
   color: var(--green-bright);
 }
 
-/* ── DEMO ── */
-#demo {
+/* ── VIDEO THUMB ── */
+.video-thumb {
+  display: block;
+  text-decoration: none;
+  margin: 24px 0 20px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(34,197,94,0.25);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.video-thumb:hover {
+  border-color: var(--green-bright);
+  transform: translateY(-2px);
+}
+
+.video-thumb-bg {
+  background: linear-gradient(135deg, #071a10 0%, #0a2e18 50%, #071a10 100%);
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-thumb-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 18px,
+    rgba(34,197,94,0.04) 18px,
+    rgba(34,197,94,0.04) 36px
+  );
+}
+
+.video-thumb-bg::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(34,197,94,0.15), transparent 70%);
+  border-radius: 50%;
+}
+
+.vt-play {
+  position: relative;
+  z-index: 1;
+  width: 56px; height: 56px;
+  min-width: 56px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(22,163,74,0.6);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.video-thumb:hover .vt-play {
+  transform: scale(1.08);
+  box-shadow: 0 0 50px rgba(34,197,94,0.7);
+}
+
+.vt-texts {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.vt-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.vt-sub {
+  font-size: 12px;
+  color: var(--green-bright);
+  font-weight: 500;
+}
+
+/* ── DEMO LINK HIGHLIGHT ── */
+.demo-link-highlight {
+  border-color: rgba(34, 197, 94, 0.35) !important;
+  background: rgba(22, 163, 74, 0.1) !important;
+}
+
+.demo-link-highlight .demo-link-title { color: var(--green-bright) !important; }
+
+/* ── XP SHOP ── */
+#xpshop {
+  padding: 56px 20px;
+  background: linear-gradient(180deg, transparent, rgba(22,163,74,0.05) 40%, transparent);
+}
+
+.xp-intro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(22,163,74,0.08);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 28px;
+}
+
+.xp-intro-icon { font-size: 28px; }
+
+.xp-intro-text h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green-pale);
+  margin-bottom: 3px;
+}
+
+.xp-intro-text p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.xp-coming-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fbbf24;
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.xp-coming-badge::before {
+  content: '⏳';
+  font-size: 10px;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.shop-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.shop-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34,197,94,0.3), transparent);
+}
+
+.shop-card:hover {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(22, 163, 74, 0.09);
+}
+
+.shop-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+
+.shop-card h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.shop-card p {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.xp-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(22,163,74,0.15);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green-bright);
+}
+
+.xp-price-locked {
+  background: rgba(100,100,100,0.1);
+  border-color: rgba(100,100,100,0.2);
+  color: var(--muted);
+}
+
+.lock-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 14px;
+  opacity: 0.4;
+}
+
+.shop-how {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(22,163,74,0.06);
+  border: 1px solid rgba(34,197,94,0.15);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.shop-how-icon { font-size: 18px; margin-top: 1px; }
+
+.shop-how-text {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.shop-how-text strong { color: var(--text); }
   padding: 48px 20px;
   background: linear-gradient(180deg, transparent, rgba(22,163,74,0.04) 50%, transparent);
 }
@@ -741,7 +974,6 @@ footer {
 <!-- NAVBAR -->
 <nav>
   <div class="logo">Kid<span>Uply</span></div>
-  <div class="nav-badge">Beta — Tez orada</div>
 </nav>
 
 <!-- HERO -->
@@ -754,8 +986,8 @@ footer {
       <strong>KidUply</strong> bu vaqtni matematik, til va mantiqqa aylantiradi — AI orqali, o'yin shaklida.
     </p>
     <div class="cta-group anim delay-4">
-      <a href="#demo" class="btn-primary">Demo ko'rish →</a>
-      <a href="#how" class="btn-secondary">Qanday ishlaydi?</a>
+      <a onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'}); return false;" href="javascript:void(0)" class="btn-primary">Demo ko'rish →</a>
+      <a onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'}); return false;" href="javascript:void(0)" class="btn-secondary">Qanday ishlaydi?</a>
     </div>
   </div>
 </section>
@@ -992,6 +1224,64 @@ footer {
 
 <div class="divider"></div>
 
+<!-- XP SHOP -->
+<section id="xpshop">
+  <div class="container">
+    <div class="section-label">Yaqinda</div>
+    <h2>XP yig'ib, <em>mukofot</em> ol</h2>
+
+    <div class="xp-intro">
+      <div class="xp-intro-icon">⭐</div>
+      <div class="xp-intro-text">
+        <h4>O'rganish = pul emas, XP</h4>
+        <p>Bola har dars va o'yindan XP yig'adi. Bu XP bilan do'konda real narsalar sotib oladi.</p>
+      </div>
+    </div>
+
+    <div class="xp-coming-badge">Tez orada ishga tushadi</div>
+
+    <div class="shop-grid">
+      <div class="shop-card">
+        <span class="shop-icon">🦊</span>
+        <h4>Avatar Skin</h4>
+        <p>Bola o'z qahramonini yangi qiyofaga kiritadi</p>
+        <span class="xp-price">⭐ 200 XP</span>
+      </div>
+
+      <div class="shop-card">
+        <span class="shop-icon">🎨</span>
+        <h4>App Tema</h4>
+        <p>Ilovaning rangini o'zgartirish — kosmik, o'rmon, okean</p>
+        <span class="xp-price">⭐ 350 XP</span>
+      </div>
+
+      <div class="shop-card">
+        <span class="shop-icon">🏅</span>
+        <h4>Maxsus Badge</h4>
+        <p>Profilda ko'rinadigan "Math Master" va boshqa unvonlar</p>
+        <span class="xp-price">⭐ 150 XP</span>
+      </div>
+
+      <div class="shop-card">
+        <div class="lock-icon">🔒</div>
+        <span class="shop-icon">🎮</span>
+        <h4>Bonus O'yin</h4>
+        <p>Faqat XP bilan ochiladigan maxsus mini-o'yin</p>
+        <span class="xp-price xp-price-locked">⭐ 500 XP</span>
+      </div>
+    </div>
+
+    <div class="shop-how">
+      <div class="shop-how-icon">💡</div>
+      <div class="shop-how-text">
+        <strong>Qanday ishlaydi?</strong> Bola 5 dars → 25 XP. 1 o'yin → 10–30 XP. Streak bonus → x2 XP. Hammasi ichki tizimda — hech qanday real pul kerak emas.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- DEMO -->
 <section id="demo">
   <div class="container">
@@ -999,28 +1289,26 @@ footer {
     <h2>Ko'ring, <em>sinab</em> ko'ring</h2>
     <p class="section-desc">Ishlaydigan MVP — o'yin, dars va parent paneli tayyor.</p>
 
-    <div class="video-placeholder" onclick="this.style.opacity='0.7'">
-      <div class="play-btn">▶</div>
-      <div class="video-label">Demo video — tez orada</div>
-    </div>
+    <!-- Video: opens in browser -->
+    <a href="https://drive.google.com/file/d/1ZGZ10vM5IQM66h_pM_oZ_K8hDBBxOaQZ/view" target="_blank" rel="noopener" class="video-thumb">
+      <div class="video-thumb-bg">
+        <div class="vt-play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="vt-texts">
+          <span class="vt-title">KidUply Demo Video</span>
+          <span class="vt-sub">Google Drive · Tap to watch ↗</span>
+        </div>
+      </div>
+    </a>
 
     <div class="demo-links">
-      <a href="#" class="demo-link-btn">
+      <a href="https://t.me/+mTbkvu_3qvNjNjRi" target="_blank" rel="noopener" class="demo-link-btn demo-link-highlight">
         <div class="demo-link-left">
-          <div class="demo-link-icon">📱</div>
+          <div class="demo-link-icon">📲</div>
           <div class="demo-link-text">
-            <span class="demo-link-title">Prototype ko'rish</span>
-            <span class="demo-link-sub">Figma / interaktiv prototip</span>
-          </div>
-        </div>
-        <span class="demo-link-arrow">→</span>
-      </a>
-      <a href="#" class="demo-link-btn">
-        <div class="demo-link-left">
-          <div class="demo-link-icon">🛒</div>
-          <div class="demo-link-text">
-            <span class="demo-link-title">Beta ro'yxatiga kirish</span>
-            <span class="demo-link-sub">Play Store · App Store</span>
+            <span class="demo-link-title">Beta APK yuklab olish</span>
+            <span class="demo-link-sub">Telegram · Yopiq kanal orqali (xavfsiz)</span>
           </div>
         </div>
         <span class="demo-link-arrow">→</span>
@@ -1040,8 +1328,8 @@ footer {
       KidUply beta uchun ro'yxatga oling.<br>
       Birinchilar orasida bo'ling.
     </p>
-    <a href="#" class="btn-primary" style="margin: 0 auto; display: block; max-width: 300px;">
-      Beta ro'yxatiga kirish →
+    <a href="https://t.me/+mTbkvu_3qvNjNjRi" target="_blank" rel="noopener" class="btn-primary" style="margin: 0 auto; display: block; max-width: 300px;">
+      Beta APK olish → Telegram
     </a>
     <p class="cta-note">Bepul · Hech qanday kredit karta kerak emas</p>
   </div>
@@ -1076,7 +1364,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.prod-card, .diff-item, .stat-chip, .prob-card, .sol-card').forEach(el => {
+document.querySelectorAll('.prod-card, .diff-item, .stat-chip, .prob-card, .sol-card, .shop-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(16px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -1084,7 +1372,7 @@ document.querySelectorAll('.prod-card, .diff-item, .stat-chip, .prob-card, .sol-
 });
 
 // Add stagger delays to grids
-document.querySelectorAll('.product-grid, .diff-grid, .status-grid, .prob-sol').forEach(grid => {
+document.querySelectorAll('.product-grid, .diff-grid, .status-grid, .prob-sol, .shop-grid').forEach(grid => {
   Array.from(grid.children).forEach((child, i) => {
     child.style.transitionDelay = `${i * 0.08}s`;
   });
